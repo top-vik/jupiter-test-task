@@ -1,0 +1,43 @@
+$bg-color: #fdf0e9;
+$category-color: rgba(57, 20, 0, 0.64);
+$category-hover-color: rgba(57, 20, 0, 0.322);
+$category-active-color: #16CD53;
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: $bg-color;
+    height: 100vh;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    width: 37rem;
+    margin: 80px auto;
+    padding: 0;
+    color: $category-color;
+    list-style: none;
+
+    &_item {
+        cursor: pointer;
+
+        &:hover {
+            color: $category-hover-color;
+        }
+
+        &:active {
+            color: $category-active-color;
+        }
+    }
+}
+
+.cards_container {
+    display: grid;
+    max-width: 1180px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+
+}

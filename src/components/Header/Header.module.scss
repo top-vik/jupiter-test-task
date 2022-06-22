@@ -1,0 +1,105 @@
+$header-bg-color: #28293e;
+$font-color: #fff;
+$logo-font-size: 24px;
+$nav-item-font-size: 16px;
+$nav-link-hover-color: rgba(255, 255, 255, 0.644);
+$slogan-text-color: rgba(255, 255, 255, 0.644);
+$btn-border: 1px solid rgba(255, 255, 255, 0.29);
+$btn-border-hover: 2px solid rgba(255, 255, 255, 0.541);
+
+header {
+    background-color: $header-bg-color;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    
+    
+}
+
+.logo_wrapper {
+    display: flex;
+    width: 145px;
+    color: $font-color;
+}
+
+.logo_link {
+    text-decoration: none;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
+
+.company_name {
+    font-size: $logo-font-size;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+    width: 850px;
+    
+    &_item {
+        font-size: $nav-item-font-size;
+        margin: auto; 
+
+        
+        &_link {
+            color: $font-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $nav-link-hover-color;
+            }
+        }
+    }
+}
+
+.contact_btn {
+    background: transparent;
+    color: $font-color;
+    border: $btn-border;
+    border-radius: 5px;
+    width: 137px;
+    height: 47px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        border: $btn-border-hover;
+    }
+}
+
+.header_bottom {
+    display: flex;
+    flex-direction: column;
+    color: $font-color;
+    align-items: center;
+    max-width: 100%;
+    margin: 80px auto 0 auto;
+    height: 250px;
+
+    &_title {
+        font-size: 72px;
+        line-height: 87px;
+        margin: 0;
+    }
+
+    &_text {
+        font-size: $nav-item-font-size;
+        font-weight: lighter;
+        text-align: center;
+        line-height: 35px;
+        color: $slogan-text-color;
+        max-width: 700px;
+    }
+}
