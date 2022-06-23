@@ -1,0 +1,50 @@
+$category-btn-width: 84px;
+$category-btn-height: 38px;
+$card-border-radius: 8px;
+
+.card {
+    width: 370px;
+    height: 416px;
+    position: relative;
+    border-radius: $card-border-radius;
+    margin: 15px;
+
+    &_img {
+       width: inherit;
+       border-radius: $card-border-radius;
+    }
+
+    &_title {
+        position: absolute;
+        top: 65%;
+        left: 14%;
+        z-index: 10;
+        color: #fff;
+        font-size: 40px;
+    }
+}
+
+.category {
+    position: absolute;
+    z-index: 10;
+    top: 62%;
+    left: 13%;
+    padding: 0.5em 0.7em;
+    height: $category-btn-height;
+    border-radius: 2em;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.mask {
+    width: 370px;
+    height: 416px;
+    position: absolute;
+    background-color: #5c2000;
+    opacity: 0.32;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    border-radius: $card-border-radius;
+}

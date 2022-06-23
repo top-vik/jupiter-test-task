@@ -1,4 +1,5 @@
 $bg-color: #fdf0e9;
+$container-height: 250vh;
 $category-color: rgba(57, 20, 0, 0.64);
 $category-hover-color: rgba(57, 20, 0, 0.322);
 $category-active-color: #16CD53;
@@ -8,7 +9,7 @@ $category-active-color: #16CD53;
     display: flex;
     flex-direction: column;
     background-color: $bg-color;
-    height: 100vh;
+    min-height: 200vh;
 }
 
 .categories {
@@ -34,10 +35,31 @@ $category-active-color: #16CD53;
 }
 
 .cards_container {
-    display: grid;
-    max-width: 1180px;
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 2rem;
+}
 
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
+.card {
+    width: 370px;
+    height: 416px;
+    &_img {
+       width: inherit;
+    }
+}
 
+.loadmore {
+    width: 170px;
+    height: 48px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 4px 12px;
+    margin: 80px auto;
+    padding: 0.5em 0.7em;
+    cursor: pointer;
+    text-transform: uppercase;
 }
