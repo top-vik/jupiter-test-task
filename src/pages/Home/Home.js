@@ -1,35 +1,85 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Card from '../../components/Card/Card';
-import { remove } from '../../reducers/cardsSlice';
 import styles from "./Home.module.scss";
 
 const Home = () => {
-    const cards = useSelector(state => state.toolkit.cards);
-    const dispatch = useDispatch();
-    const clickHandler = (id) => {
-        dispatch(remove(id));
+    let cards = useSelector(state => state.toolkit.cards);
+
+    const categories = {
+        showAll: 'Show all',
+        design: 'Design',
+        branding: 'Branding',
+        illustration: 'Illustration',
+        motion: 'Motion'
     }
-    return ( 
-        <div className={styles.container}>
-            <ul className={styles.categories}>
-                <li className={styles.categories_item}>Show all</li>
-                <li className={styles.categories_item}>Design</li>
-                <li className={styles.categories_item}>Branding</li>
-                <li className={styles.categories_item}>Illustration</li>
-                <li className={styles.categories_item}>Motion</li>
-            </ul>
-            <div className={styles.cards_container}>
-                {cards.map((card, index) => 
+    
+    
+
+    //Load more
+    const [cardsPerPage, setCardsPerPage] = useState(9);
+    const cardsToShow = cards.slice(0, cardsPerPage);
+    const loadMore = () => {
+        setCardsPerPage(cardsPerPage + cardsPerPage);
+    }
+
+    //Filter
+    const [ category, setCategory ] = useState(categories.showAll);
+    const filteredCards = (cards) => {
+        return cards.map((card) => card.category === category &&
                     <Card 
                         card={card} 
                         key={`${card.id}`} 
-                        className={styles.card}
-                        clickHandler={() => clickHandler(card.id)}    
+                        className={styles.card}   
                     />
-                )}
+                )
+    }
+
+    return ( 
+        <div className={styles.container}>
+            <ul className={styles.categories}>
+                <li
+                    className={styles.categories_item}
+                    onClick={() => setCategory(categories.showAll)}
+                >
+                    {categories.showAll}
+                </li>
+                <li
+                    className={styles.categories_item}
+                    onClick={() => setCategory(categories.design)}
+                >
+                    {categories.design}
+                </li>
+                <li
+                    className={styles.categories_item}
+                    onClick={() => setCategory(categories.branding)}
+                >
+                    {categories.branding}
+                </li>
+                <li
+                    className={styles.categories_item}
+                    onClick={() => setCategory(categories.illustration)}
+                >
+                    {categories.illustration}
+                </li>
+                <li
+                    className={styles.categories_item}
+                    onClick={() => setCategory(categories.motion)}
+                >
+                    {categories.motion}
+                </li>
+            </ul>
+            <div className={styles.cards_container}>
+                {category === categories.showAll ? cardsToShow.map((card) => 
+                    <Card 
+                        card={card} 
+                        key={`${card.id}`} 
+                        className={styles.card} 
+                        categoryHandler={() => setCategory(card.category)}  
+                    />
+                ) : filteredCards(cardsToShow, category)} 
             </div>
-            <button className={styles.loadmore}>Load more</button>
+            <button className={styles.loadmore} onClick={() => loadMore()}>Load More</button>
         </div>
     )
 }

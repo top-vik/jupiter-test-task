@@ -9,6 +9,13 @@ $card-border-radius: 8px;
     border-radius: $card-border-radius;
     margin: 15px;
 
+    &_picked {
+        @extend .card;
+        outline: 3px solid rgba(255, 255, 255, 0.5);
+        outline-offset: -3px;
+        box-shadow: 0 0 0 5px #4fe24ade;
+    }
+
     &_img {
        width: inherit;
        border-radius: $card-border-radius;
@@ -35,6 +42,7 @@ $card-border-radius: 8px;
     border: none;
     font-family: inherit;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .mask {

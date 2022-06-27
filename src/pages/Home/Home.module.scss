@@ -36,20 +36,13 @@ $category-active-color: #16CD53;
 
 .cards_container {
     display: flex;
-    max-width: 1600px;
+    max-width: 1610px;
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
     padding: 0 2rem;
 }
 
-.card {
-    width: 370px;
-    height: 416px;
-    &_img {
-       width: inherit;
-    }
-}
 
 .loadmore {
     width: 170px;
